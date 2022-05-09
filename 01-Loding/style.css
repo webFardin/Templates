@@ -1,0 +1,97 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  height: 100vh;
+  background-color: #131418;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+.circle {
+  width: 400px;
+  height: 400px;
+  background-color: #131418;
+  border-radius: 50%;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+.transparentBorder {
+  width: 390px;
+  height: 390px;
+  border-radius: 50%;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.loadText {
+  color: #ccc;
+  display: flex;
+  font-size: 25px;
+  align-items: center;
+  animation: loadText 1.5s ease-out infinite alternate;
+  user-select: none;
+  z-index: 1;
+}
+
+@keyframes loadText {
+  20% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0.1;
+  }
+}
+
+.progress {
+  background: linear-gradient(0deg, #dc143c, #009688);
+  width: 600px;
+  height: 600px;
+  border-radius: 250px;
+  position: absolute;
+  top: 420px;
+  transform: rotate(10deg);
+  animation: rotate 8s linear infinite,
+    move 30s cubic-bezier(0.9, 1.24, 0.8, 0.52) forwards;
+}
+
+@keyframes rotate {
+  100% {
+    transform: rotate(370deg);
+  }
+}
+
+@keyframes move {
+  100% {
+    top: 0;
+  }
+}
+
+.blur {
+  width: 360px;
+  height: 360px;
+  border-radius: 50%;
+  position: absolute;
+  background: linear-gradient(135deg, #dc143c, #009688);
+  filter: blur(15px);
+  z-index: -1;
+  animation: blur 5s ease-in-out infinite alternate;
+}
+
+@keyframes blur {
+  100% {
+    width: 400px;
+    height: 400px;
+    transform: rotate(315deg);
+  }
+}
