@@ -1,0 +1,238 @@
+* {
+  margin: 0;
+  padding: 0;
+  user-select: none;
+}
+
+body {
+  height: 100vh;
+  background-color: #ededed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+.toolbox {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.toolbox:hover::after {
+  content: "";
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 300px;
+  height: 300px;
+  position: absolute;
+}
+
+.toolbox .pen-toolbox {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.toolbox .pen-toolbox .pen-background {
+  background: #6a859a;
+  border: 1px solid #6a859a;
+  border-radius: 100%;
+  width: 85px;
+  height: 85px;
+  transition: 0.3s;
+  z-index: 1;
+}
+
+.toolbox:hover .pen-toolbox .pen-background {
+  transform: scale(0.7);
+  background: transparent;
+}
+
+.toolbox .pen-toolbox .pen {
+  width: 75px;
+  position: absolute;
+  transition: 0.3s;
+  z-index: 3;
+}
+
+.toolbox:hover .pen-toolbox .pen {
+  transform: rotate(360deg);
+}
+
+.toolbox .pen-toolbox .colors {
+  width: 75px;
+  transition: 0.3s;
+  position: absolute;
+  z-index: 2;
+}
+
+.toolbox:hover .pen-toolbox .colors {
+  opacity: 0;
+}
+
+.toolbox .items {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1;
+}
+
+.toolbox .items .item {
+  width: 80px;
+  height: 80px;
+  background-color: #ededed;
+  border: 1px solid #7793a8;
+  border-radius: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  transition: 0.3s;
+  opacity: 0;
+}
+
+.toolbox:hover .items .item {
+  opacity: 1;
+}
+
+.toolbox:hover .items .item-clear {
+  transform: translate(-100px, 0);
+}
+.toolbox:hover .items .item-new {
+  transform: translate(0, -100px);
+}
+.toolbox:hover .items .item-upload {
+  transform: translate(100px, 0);
+}
+.toolbox:hover .items .item-history {
+  transform: translate(0, 100px);
+}
+
+.toolbox .items .item:hover {
+  background: transparent;
+  border: 1px solid #d4d4d4;
+}
+
+.toolbox .items .item img {
+  transition: 0.3s;
+}
+
+.toolbox .items .item-clear .bin {
+  width: 75px;
+}
+
+.toolbox .items .item-clear .bin-door {
+  width: 75px;
+  position: absolute;
+  transform: translate(0, -5px);
+}
+
+.toolbox .items .item-clear .trash {
+  width: 75px;
+  position: absolute;
+  opacity: 0;
+  transform: translate(0, -3px);
+}
+
+.toolbox .items .item-clear:hover .bin-door {
+  transform: translate(-3px, -23px) rotate(-45deg);
+}
+
+.toolbox .items .item-clear:hover .trash {
+  opacity: 1;
+}
+
+.toolbox .items .item-new .paint-bucket-img {
+  width: 75px;
+}
+
+.toolbox .items .item-new .paint-bucket-colors {
+  width: 45px;
+  position: absolute;
+  transform: translate(-30px, 15px);
+  opacity: 0;
+}
+
+.toolbox .items .item-new:hover .paint-bucket-img {
+  transform: rotate(-90deg);
+}
+
+.toolbox .items .item-new:hover .paint-bucket-colors {
+  opacity: 1;
+}
+
+.toolbox .items .item-upload .upload-image {
+  width: 60px;
+  height: 60px;
+}
+
+.toolbox .items .item-upload .upload-arrow {
+  width: 60px;
+  height: 60px;
+  position: absolute;
+}
+
+.toolbox .items .item-upload:hover .upload-arrow {
+  transform: translate(0, -20px);
+}
+
+.toolbox .items .item-history .history-img {
+  width: 60px;
+  position: absolute;
+  z-index: 1;
+}
+
+.toolbox .items .item-history .history-back-img {
+  width: 60px;
+  opacity: 0;
+}
+
+.toolbox .items .item-history:hover .history-back-img {
+  opacity: 1;
+  transform: translate(3px, -7px) rotate(8deg);
+}
+
+.toolbox .items .item .tooltip {
+  width: max-content;
+  height: max-content;
+  padding: 0 5px 0 5px;
+  background: #7196b76e;
+  color: white;
+  border-radius: 10px;
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transform: translate(0px, 55px);
+  opacity: 0;
+  visibility: hidden;
+  transition: 0.3s;
+}
+
+.toolbox .items .item-new .tooltip {
+  transform: translate(0, -55px) !important;
+}
+
+.toolbox .items .item-clear:hover .tooltip {
+  opacity: 1;
+  visibility: visible;
+}
+
+.toolbox .items .item-new:hover .tooltip {
+  opacity: 1;
+  visibility: visible;
+}
+
+.toolbox .items .item-upload:hover .tooltip {
+  opacity: 1;
+  visibility: visible;
+}
+
+.toolbox .items .item-history:hover .tooltip {
+  opacity: 1;
+  visibility: visible;
+}
